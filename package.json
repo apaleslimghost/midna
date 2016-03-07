@@ -26,6 +26,7 @@
     "entities": "^1.1.1",
     "lodash.find": "^4.2.0",
     "lodash.maxby": "^4.2.0",
-    "lodash.minby": "^4.2.0"
+    "lodash.minby": "^4.2.0",
+    "lodash.sortby": "^4.2.1"
   }
 }

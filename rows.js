@@ -1,6 +1,7 @@
 var find  = require('lodash.find');
 var minBy = require('lodash.minby');
 var maxBy = require('lodash.maxby');
+var sortBy = require('lodash.sortby');
 var hrtimeToNs = require('@quarterto/hrtime-to-ns');
 
 function overlap(item1, item2) {
@@ -10,7 +11,9 @@ function overlap(item1, item2) {
 	var end2   = hrtimeToNs(item2.end);
 
 	return (start1 <= start2 && end1 >= start2)
-	    || (start1 <= end2   && end1 >= end2);
+	    || (start1 <= end2   && end1 >= end2)
+	    || (start2 <= start1 && end2 >= start1)
+	    || (start2 <= end1   && end2 >= end1);
 }
 
 function overlapAny(items, item) {
@@ -36,6 +39,6 @@ module.exports = function(items) {
 	var latest   = maxBy(items, item => hrtimeToNs(item.end));
 	return {
 		earliest, latest,
-		rows: items.reduce(insertItem, [])
+		rows: sortBy(items, item => hrtimeToNs(item.start)).reduce(insertItem, [])
 	};
 };
