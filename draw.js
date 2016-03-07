@@ -11,7 +11,7 @@ function drawItem(item, options) {
 	var color = prettyColorGen(item.tag);
 	var x = hrtimeToNs(item.start)/options.scale - options.offset;
 	var width = hrtimeToNs(item.length) / options.scale;
-	var label = entities.encodeXML(`${item.tag} - ${item.label}`);
+	var label = entities.encodeXML(`${item.tag} - ${(hrtimeToNs(item.length) / 1e6).toFixed(2)}ms - ${item.label}`);
 	var id = Math.random().toString().slice(2);
 
 	return `<g transform="translate(${x})">
