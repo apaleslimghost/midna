@@ -18,7 +18,7 @@ function overlapAny(items, item) {
 }
 
 function findRow(rows, item) {
-	return find(rows, row => row.tag === item.tag && !overlapAny(rows.items, item));
+	return find(rows, row => row.tag === item.tag && !overlapAny(row.items, item));
 }
 
 function insertItem(rows, item) {
