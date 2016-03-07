@@ -4,7 +4,7 @@ var contrast = require('contrast');
 var entities = require('entities');
 
 function textColor(bg) {
-	return contrast(bg) === 'light' ? '#fff' : '#000';
+	return contrast(bg) === 'light' ? '#000' : '#fff';
 }
 
 function drawItem(item, options) {
