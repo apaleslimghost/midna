@@ -21,7 +21,7 @@ function overlapAny(items, item) {
 }
 
 function findRow(rows, item) {
-	return find(rows, row => (row.group ? row.group === item.group : row.tag === item.tag) && !overlapAny(row.items, item));
+	return find(rows, row => (item.group ? row.group === item.group : row.tag === item.tag) && !overlapAny(row.items, item));
 }
 
 function insertItem(rows, item) {
